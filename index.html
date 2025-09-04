@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para Mi Niña Hermosa 💖</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Audio sin autoplay -->
+  <audio id="audio" loop>
+    <source src="baby-be-mine.mp3" type="audio/mpeg" />
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+
+  <!-- Botón para controlar música -->
+  <button id="music-control">🎵 Reproducir música</button>
+
+  <!-- Corazón interactivo -->
+  <div id="heart">💖</div>
+
+  <!-- Botón para ir al mensaje principal -->
+  <button id="go-to-message">💌 Ver mensaje principal</button>
+
+  <header>
+    <h1>Para El Amor De Mi Vida</h1>
+    <p>Un pequeño detalle donde cada palabra lleva una parte de mi corazón hacia ti</p>
+  </header>
+
+  <section class="content">
+    <div id="mensaje-principal" class="love-letter">
+      <h2>Mi Querida Jhanet</h2>
+      <p>
+        Desde el primer instante que cruzaste mi mirada, mi mundo comenzó a brillar con una luz que solo tú podrías encender. 
+        Cada día contigo es un poema que se escribe en el lienzo del tiempo, donde tus risas son melodías que acarician mi alma. 
+        En tus ojos encuentro mi refugio y en tu voz, el consuelo que calma cualquier tormenta. No hay distancia, ni obstáculo que pueda apagar este fuego que arde por ti.
+      </p>
+      <p>
+        Gracias por regalarme tu presencia, por cada detalle y por el amor sincero que compartimos. Eres mi inspiración, mi paz y mi alegría constante. 
+        Que este espacio sea un pequeño símbolo de la inmensidad de mi amor, que no cabe en palabras, pero sí en cada latido de mi corazón.
+      </p>
+      <p>
+        Te amo hoy, mañana y siempre, con todo lo que soy y lo que seré. Mi vida es mejor porque tú estás en ella.
+      </p>
+      <p><strong>Con todo mi amor,</strong></p>
+      <p><strong>Geovanny</strong></p>
+      <p><strong>(el corazón tiene otro mensajito sorpresa)</strong></p>
+    </div>
+
+    <div class="gallery">
+      <img src="foto3.jpg" alt="27/06/2025" />
+      <img src="foto2.jpg" alt="01/05/2025" />
+      <img src="foto1.jpg" alt="24/12/2024" />
+    </div>
+  </section>
+
+  <footer>
+    <p> Hecho con amor infinito 💗</p>
+  </footer>
+
+  <script>
+    const heart = document.getElementById('heart');
+    const button = document.getElementById('go-to-message');
+    const audio = document.getElementById('audio');
+    const musicBtn = document.getElementById('music-control');
+
+    // Desplazamiento suave al mensaje principal
+    button.addEventListener('click', () => {
+      document.getElementById('mensaje-principal').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Animación de corazones flotantes
+    heart.addEventListener('click', () => {
+      const mensaje = `💌 Mi amor, no hay palabras suficientes para expresar lo que siento. Gracias por cada instante, cada sonrisa y cada latido compartido. 
+      Eres mi todo, mi fuerza y mi sueño hecho realidad. Te amo más allá de las estrellas y siempre estaré aquí, contigo.`;
+      alert(mensaje);
+
+      for (let i = 0; i < 15; i++) {
+        const corazon = document.createElement('div');
+        corazon.className = 'floating-heart';
+        corazon.style.left = Math.random() * 100 + 'vw';
+        corazon.style.animationDuration = 3 + Math.random() * 3 + 's';
+        corazon.style.fontSize = 20 + Math.random() * 30 + 'px';
+        corazon.style.opacity = Math.random();
+        document.body.appendChild(corazon);
+
+        setTimeout(() => corazon.remove(), 4000);
+      }
+    });
+
+    // Control de reproducción musical
+    musicBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        musicBtn.textContent = '⏸️ Pausar música';
+      } else {
+        audio.pause();
+        musicBtn.textContent = '🎵 Reproducir música';
+      }
+    });
+  </script>
+
+</body>
+</html>
